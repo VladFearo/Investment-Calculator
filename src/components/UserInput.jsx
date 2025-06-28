@@ -1,21 +1,4 @@
-import { useState } from "react";
-
-function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserInput((prevInput) => ({
-      ...prevInput,
-      [name]: value,
-    }));
-  };
-
+function UserInput({ userInput, onInputChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -26,7 +9,7 @@ function UserInput() {
             id="initial-investment"
             name="initialInvestment"
             value={userInput.initialInvestment}
-            onChange={handleInputChange}
+            onChange={onInputChange}
             required
           />
         </p>
@@ -37,7 +20,7 @@ function UserInput() {
             id="annual-investment"
             name="annualInvestment"
             value={userInput.annualInvestment}
-            onChange={handleInputChange}
+            onChange={onInputChange}
             required
           />
         </p>
@@ -50,7 +33,7 @@ function UserInput() {
             id="expected-return"
             name="expectedReturn"
             value={userInput.expectedReturn}
-            onChange={handleInputChange}
+            onChange={onInputChange}
             required
           />
         </p>
@@ -61,7 +44,7 @@ function UserInput() {
             id="duration"
             name="duration"
             value={userInput.duration}
-            onChange={handleInputChange}
+            onChange={onInputChange}
             required
           />
         </p>
